@@ -1,242 +1,241 @@
-{
-  "Tests": [
-    {
-      "TestId": 0,
-      "TestName": "Empty graph",
-      "TestInput": [
-        ""
-      ],
-      "TestExpectedOutput": [
-        ""
-      ]
-    },
-    {
-      "TestId": 1,
-      "TestName": "Trivial graph",
-      "TestInput": [
-        "A"
-      ],
-      "TestExpectedOutput": [
-        "A"
-      ]
-    },
-    {
-      "TestId": 2,
-      "TestName": "Multiple vertex, no edges",
-      "TestInput": [
-        "A",
-        "B"
-      ],
-      "TestExpectedOutput": [
-        "A",
-        "B"
-      ]
-    },
-    {
-      "TestId": 3,
-      "TestName": "Two nodes with cyclic dependency",
-      "TestInput": [
-        "A B",
-        "B A"
-      ],
-      "TestExpectedOutput": [
-        "A A B",
-        "B A B"
-      ]
-    },
-    {
-      "TestId": 4,
-      "TestName": "Two nodes with dependency on non-sink",
-      "TestInput": [
-        "A B",
-        "B C"
-      ],
-      "TestExpectedOutput": [
-        "A B C",
-        "B C"
-      ]
-    },
-    {
-      "TestId": 5,
-      "TestName": "Two nodes with no shared dependencies",
-      "TestInput": [
-        "A B",
-        "C D"
-      ],
-      "TestExpectedOutput": [
-        "A B",
-        "C D"
-      ]
-    },
-    {
-      "TestId": 6,
-      "TestName": "Two nodes with shared dependent sink",
-      "TestInput": [
-        "A B",
-        "C B"
-      ],
-      "TestExpectedOutput": [
-        "A B",
-        "C B"
-      ]
-    },
-    {
-      "TestId": 7,
-      "TestName": "Two nodes with dependency on other sink",
-      "TestInput": [
-        "A B",
-        "B"
-      ],
-      "TestExpectedOutput": [
-        "A B",
-        "B"
-      ]
-    },
-    {
-      "TestId": 8,
-      "TestName": "Two node with one shared dependency and one without dependency",
-      "TestInput": [
-        "A B C",
-        "C D"
-      ],
-      "TestExpectedOutput": [
-        "A B C D",
-        "C D"
-      ]
-    },
-    {
-      "TestId": 9,
-      "TestName": "Multilevel dependency",
-      "TestInput": [
-        "A B C",
-        "C E F",
-        "E G H"
-      ],
-      "TestExpectedOutput": [
-        "A B C E F G H",
-        "C E F G H",
-        "C G H"
-      ]
-    },
-    {
-      "TestId": 10,
-      "TestName": "Multilevel dependency with disconnected node",
-      "TestInput": [
-        "A B E",
-        "D",
-        "E F G"
-      ],
-      "TestExpectedOutput": [
-        "A B E F G",
-        "D",
-        "E F G"
-      ]
-    },
-    {
-      "TestId": 11,
-      "TestName": "Multilevel dependency, single disconnected graph with disconnected dependencies",
-      "TestInput": [
-        "A B E",
-        "D C",
-        "E F G"
-      ],
-      "TestExpectedOutput": [
-        "A B E F G",
-        "D C",
-        "E F G"
-      ]
-    },
-    {
-      "TestId": 12,
-      "TestName": "Graph with several disconnections",
-      "TestInput": [
-        "A B C",
-        "D A",
-        "E F G"
-      ],
-      "TestExpectedOutput": [
-        "A B C",
-        "D A",
-        "E F G"
-      ]
-    },
-    {
-      "TestId": 13,
-      "TestName": "Multilevel dependency with cyclic component with gap between dependencies in array",
-      "TestInput": [
-        "A B C",
-        "B E",
-        "C A G"
-      ],
-      "TestExpectedOutput": [
-        "A A B C E G",
-        "B E",
-        "C A B C E G"
-      ]
-    },
-    {
-      "TestId": 14,
-      "TestName": "Three-way cyclic dependency",
-      "TestInput": [
-        "A B C",
-        "B D E",
-        "D A F"
-      ],
-      "TestExpectedOutput": [
-        "A A B C D E F",
-        "B A B C D E F",
-        "C A B C D E F"
-      ]
-    },
-    {
-      "TestId": 15,
-      "TestName": "Three-way cyclic dependency (3 vertex complete graph)",
-      "TestInput": [
-        "A B C",
-        "B A C",
-        "C A B"
-      ],
-      "TestExpectedOutput": [
-        "A A B C",
-        "B A B C",
-        "C A B C"
-      ]
-    },
-    {
-      "TestId": 16,
-      "TestName": "Three-way cyclic dependency with single edge source",
-      "TestInput": [
-        "A B C",
-        "B A C",
-        "C A B",
-        "D A"
-      ],
-      "TestExpectedOutput": [
-        "A A B C",
-        "B A B C",
-        "C A B C",
-        "D A B C"
-      ]
-    },
-    {
-      "TestId": 17,
-      "TestName": "Kata test case",
-      "TestInput": [
-        "A B C",
-        "B C E",
-        "C G",
-        "D A F",
-        "E F",
-        "F H"
-      ],
-      "TestExpectedOutput": [
-        "A B C E F G H",
-        "B C E F G H",
-        "C G",
-        "D A B C E F G H",
-        "E F H",
-        "F H"
-      ]
-    }
-  ]
-}     
+[
+  {
+    "TestId": 0,
+    "TestName": "Empty graph",
+    "TestInput": [
+      ""
+    ],
+    "TestExpectedOutput": [
+      ""
+    ]
+  },
+  {
+    "TestId": 1,
+    "TestName": "Trivial graph",
+    "TestInput": [
+      "A"
+    ],
+    "TestExpectedOutput": [
+      "A"
+    ]
+  },
+  {
+    "TestId": 2,
+    "TestName": "Multiple vertex, no edges",
+    "TestInput": [
+      "A",
+      "B"
+    ],
+    "TestExpectedOutput": [
+      "A",
+      "B"
+    ]
+  },
+  {
+    "TestId": 3,
+    "TestName": "Two nodes with cyclic dependency",
+    "TestInput": [
+      "A B",
+      "B A"
+    ],
+    "TestExpectedOutput": [
+      "A A B",
+      "B A B"
+    ]
+  },
+  {
+    "TestId": 4,
+    "TestName": "Two nodes with dependency on non-sink",
+    "TestInput": [
+      "A B",
+      "B C"
+    ],
+    "TestExpectedOutput": [
+      "A B C",
+      "B C"
+    ]
+  },
+  {
+    "TestId": 5,
+    "TestName": "Two nodes with no shared dependencies",
+    "TestInput": [
+      "A B",
+      "C D"
+    ],
+    "TestExpectedOutput": [
+      "A B",
+      "C D"
+    ]
+  },
+  {
+    "TestId": 6,
+    "TestName": "Two nodes with shared dependent sink",
+    "TestInput": [
+      "A B",
+      "C B"
+    ],
+    "TestExpectedOutput": [
+      "A B",
+      "C B"
+    ]
+  },
+  {
+    "TestId": 7,
+    "TestName": "Two nodes with dependency on other sink",
+    "TestInput": [
+      "A B",
+      "B"
+    ],
+    "TestExpectedOutput": [
+      "A B",
+      "B"
+    ]
+  },
+  {
+    "TestId": 8,
+    "TestName": "Two node with one shared dependency and one without dependency",
+    "TestInput": [
+      "A B C",
+      "C D"
+    ],
+    "TestExpectedOutput": [
+      "A B C D",
+      "C D"
+    ]
+  },
+  {
+    "TestId": 9,
+    "TestName": "Multilevel dependency",
+    "TestInput": [
+      "A B C",
+      "C E F",
+      "E G H"
+    ],
+    "TestExpectedOutput": [
+      "A B C E F G H",
+      "C E F G H",
+      "C G H"
+    ]
+  },
+  {
+    "TestId": 10,
+    "TestName": "Multilevel dependency with disconnected node",
+    "TestInput": [
+      "A B E",
+      "D",
+      "E F G"
+    ],
+    "TestExpectedOutput": [
+      "A B E F G",
+      "D",
+      "E F G"
+    ]
+  },
+  {
+    "TestId": 11,
+    "TestName": "Multilevel dependency, single disconnected graph with disconnected dependencies",
+    "TestInput": [
+      "A B E",
+      "D C",
+      "E F G"
+    ],
+    "TestExpectedOutput": [
+      "A B E F G",
+      "D C",
+      "E F G"
+    ]
+  },
+  {
+    "TestId": 12,
+    "TestName": "Graph with several disconnections",
+    "TestInput": [
+      "A B C",
+      "D A",
+      "E F G"
+    ],
+    "TestExpectedOutput": [
+      "A B C",
+      "D A",
+      "E F G"
+    ]
+  },
+  {
+    "TestId": 13,
+    "TestName": "Multilevel dependency with cyclic component with gap between dependencies in array",
+    "TestInput": [
+      "A B C",
+      "B E",
+      "C A G"
+    ],
+    "TestExpectedOutput": [
+      "A A B C E G",
+      "B E",
+      "C A B C E G"
+    ]
+  },
+  {
+    "TestId": 14,
+    "TestName": "Three-way cyclic dependency",
+    "TestInput": [
+      "A B C",
+      "B D E",
+      "D A F"
+    ],
+    "TestExpectedOutput": [
+      "A A B C D E F",
+      "B A B C D E F",
+      "C A B C D E F"
+    ]
+  },
+  {
+    "TestId": 15,
+    "TestName": "Three-way cyclic dependency (3 vertex complete graph)",
+    "TestInput": [
+      "A B C",
+      "B A C",
+      "C A B"
+    ],
+    "TestExpectedOutput": [
+      "A A B C",
+      "B A B C",
+      "C A B C"
+    ]
+  },
+  {
+    "TestId": 16,
+    "TestName": "Three-way cyclic dependency with single edge source",
+    "TestInput": [
+      "A B C",
+      "B A C",
+      "C A B",
+      "D A"
+    ],
+    "TestExpectedOutput": [
+      "A A B C",
+      "B A B C",
+      "C A B C",
+      "D A B C"
+    ]
+  },
+  {
+    "TestId": 17,
+    "TestName": "Kata test case",
+    "TestInput": [
+      "A B C",
+      "B C E",
+      "C G",
+      "D A F",
+      "E F",
+      "F H"
+    ],
+    "TestExpectedOutput": [
+      "A B C E F G H",
+      "B C E F G H",
+      "C G",
+      "D A B C E F G H",
+      "E F H",
+      "F H"
+    ]
+  }
+]
+     
