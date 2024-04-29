@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata.Graphs", "Kata.Graphs\Kata.Graphs.csproj", "{FD5067B0-DAEF-46D0-B5BC-7F411273DA04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kata.Graphs", "Kata.Graphs\Kata.Graphs.csproj", "{FD5067B0-DAEF-46D0-B5BC-7F411273DA04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata.Graphs.Tests", "Kata.Graphs.Tests\Kata.Graphs.Tests.csproj", "{3C5FBC09-55BB-4253-AD9E-13F20334D1A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{FD5067B0-DAEF-46D0-B5BC-7F411273DA04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD5067B0-DAEF-46D0-B5BC-7F411273DA04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD5067B0-DAEF-46D0-B5BC-7F411273DA04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C5FBC09-55BB-4253-AD9E-13F20334D1A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C5FBC09-55BB-4253-AD9E-13F20334D1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C5FBC09-55BB-4253-AD9E-13F20334D1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C5FBC09-55BB-4253-AD9E-13F20334D1A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
