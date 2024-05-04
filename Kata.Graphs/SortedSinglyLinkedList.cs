@@ -10,6 +10,11 @@ namespace Kata.Graphs
     {
         internal SinglyLinkedListNode<T>? Head { get; set; }
 
+        internal SortedSinglyLinkedList()
+        {
+            
+        }
+
         internal SortedSinglyLinkedList(SinglyLinkedListNode<T> headOfSortedLinkedList)
         {
             Head = headOfSortedLinkedList;

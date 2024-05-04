@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Kata.Graphs.Tests
 {
     [TestClass]
-    internal class LinkedListExtensionsTests
+    public class LinkedListExtensionsTests
     {
         private List<int>[] _arrayOfTestLists = new List<int>[]
         {
@@ -83,17 +83,16 @@ namespace Kata.Graphs.Tests
 
         private SortedSinglyLinkedList<int> GetLinkedListFromlist(List<int> list)
         {
-            var currentNode = new SinglyLinkedListNode<int>();
+            var linkedList = new SortedSinglyLinkedList<int>();
             for (int i = list.Count - 1; i >= 0; i--)
             {
                 var node = new SinglyLinkedListNode<int>()
                 {
                     Value = list[i],
-                    Next = currentNode
+                    Next = linkedList.Head,
                 };
-                currentNode = node;
+                linkedList.Head = node;
             }
-            var linkedList = new SortedSinglyLinkedList<int>(currentNode);
             return linkedList;
         }
     }
