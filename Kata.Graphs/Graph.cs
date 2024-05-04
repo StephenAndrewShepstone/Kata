@@ -48,7 +48,7 @@ namespace Kata.Graphs
                             //merges aren't taking place if a node has been merged at a deeper level.
                             LinkedList<char> innerList = _verticesAndDirectNeighbours[currentNode.Value];
                             LinkedList<char> outerList = keyValuePair.Value;
-                            innerList.Merge<char>(outerList);
+                            innerList.MergeSortedLinkedLists<char>(outerList);
                             currentNode = currentNode.Next;
                         }
                         else
