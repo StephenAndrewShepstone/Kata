@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Kata.Graphs.Tests
 {
+    [TestClass]
     internal class LinkedListExtensionsTests
     {
         private List<int>[] _arrayOfTestLists = new List<int>[]
@@ -57,11 +59,11 @@ namespace Kata.Graphs.Tests
         [DataRow(8, 6, 12, DisplayName = "Outer list multiple value gap.")]
         public void MergedSortedLinkedListTests(int testList1Number, int testList2Number, int expectedListAfterMerge)
         {
-            SinglyLinkedList<int> linkedList1 = GetTestLinkedList(testList1Number);
-            SinglyLinkedList<int> linkedList2 = GetTestLinkedList(testList2Number);
+            SortedSinglyLinkedList<int> linkedList1 = GetTestLinkedList(testList1Number);
+            SortedSinglyLinkedList<int> linkedList2 = GetTestLinkedList(testList2Number);
             List<int> expectedMergedList = _arrayOfTestLists[expectedListAfterMerge];
 
-            linkedList1.MergeLinkedList(linkedList2);
+            linkedList1.MergeSortedLinkedList(linkedList2);
 
             int entry = 0;
             SinglyLinkedListNode<int> listNode = linkedList1.Head;
@@ -72,6 +74,27 @@ namespace Kata.Graphs.Tests
                 entry++;
             }
             Assert.AreEqual(_arrayOfTestLists[expectedListAfterMerge].Count, entry, "The merged list is not of the expected length.");
+        }
+
+        private SortedSinglyLinkedList<int> GetTestLinkedList(int testNumber)
+        {
+            return GetLinkedListFromlist(_arrayOfTestLists[testNumber]);
+        }
+
+        private SortedSinglyLinkedList<int> GetLinkedListFromlist(List<int> list)
+        {
+            var currentNode = new SinglyLinkedListNode<int>();
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                var node = new SinglyLinkedListNode<int>()
+                {
+                    Value = list[i],
+                    Next = currentNode
+                };
+                currentNode = node;
+            }
+            var linkedList = new SortedSinglyLinkedList<int>(currentNode);
+            return linkedList;
         }
     }
 }
