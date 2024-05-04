@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Kata.Graphs
 {
@@ -34,8 +35,24 @@ namespace Kata.Graphs
                 return;
             }
 
-            SinglyLinkedListNode<T> innerNode = Head;
-            SinglyLinkedListNode<T> outerNode = outerLinkedList.Head;
+            SinglyLinkedListNode<T> innerNode;
+            SinglyLinkedListNode<T> outerNode;
+            if (Head.Value.CompareTo(outerLinkedList.Head.Value) < 1)
+            {
+                innerNode = Head;
+                outerNode = outerLinkedList.Head;
+                if (innerNode.Value.Equals(outerNode.Value))
+                {
+                    outerNode = outerNode.Next;
+                }
+            }
+            else
+            {
+                innerNode = outerLinkedList.Head;
+                outerNode = Head;
+                Head = innerNode;
+            }
+
             SinglyLinkedListNode<T> swapNode;
             while (innerNode.Next is not null && outerNode is not null)
             {
