@@ -14,12 +14,11 @@ namespace Kata.Graphs
 
         internal SinglyLinkedListNode()
         {
-            Value = Value;
         }
 
-        internal SinglyLinkedListNode(T Value)
+        internal SinglyLinkedListNode(T value)
         {
-            Value = Value;
+            Value = value;
         }
     }
 }
