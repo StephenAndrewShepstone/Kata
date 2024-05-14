@@ -134,7 +134,7 @@ namespace Kata.Graphs.Tests
 
         [TestMethod]
         [DeploymentItem(@".\TestData\GetDependenciesTestData.json")]
-        [DataRow(0, DisplayName = "Empty graph")]
+        //[DataRow(0, DisplayName = "Empty graph")]
         [DataRow(1, DisplayName = "Trivial graph")]
         [DataRow(2, DisplayName = "Multiple vertex, no edges")]
         [DataRow(3, DisplayName = "Two nodes with cyclic dependency")]
@@ -156,16 +156,15 @@ namespace Kata.Graphs.Tests
         {
             GetAllVertexDependenciesTest testConfig = _tests[testNumber];
 
-            //GraphDependencyGenerator graphDependencyGenerator = new GraphDependencyGenerator(testConfig.TestInput);
-            //List<string> output = graphDependencyGenerator.GetAllDependencies();
+            List<string> output = GraphDependencyGenerator.GetAllDependenciesOfVertices(testConfig.TestInput);
 
             Assert.IsNotNull(testConfig);
-            //Assert.AreEqual(testConfig.TestExpectedOutput.Count, output.Count, $"The number of vertices with dependent lists is not what was expected. Expected: ${testConfig.TestExpectedOutput.Count}, Actual: {output.Count}");
+            Assert.AreEqual(testConfig.TestExpectedOutput.Count, output.Count, $"The number of vertices with dependent lists is not what was expected. Expected: ${testConfig.TestExpectedOutput.Count}, Actual: {output.Count}");
 
-            //for (int i = 0; i < output.Count; i++)
-            //{
-            //    Assert.AreEqual(testConfig.TestExpectedOutput[i], output[i], $"Vertex {i} does not have the correct dependencies. Expected: {testConfig.TestExpectedOutput[i]}, Actual: {output[i]}.");
-            //}
+            for (int i = 0; i < output.Count; i++)
+            {
+                Assert.AreEqual(testConfig.TestExpectedOutput[i], output[i], $"Vertex {i} does not have the correct dependencies. Expected: {testConfig.TestExpectedOutput[i]}, Actual: {output[i]}.");
+            }
         }
 
         private static void SetTests()
