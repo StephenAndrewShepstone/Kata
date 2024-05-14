@@ -2,15 +2,25 @@
 
 namespace Kata.Graphs
 {
+    /// <summary>
+    /// Class that can represent different forms of a graph via transformation.
+    /// </summary>
     internal class Graph
     {
         private Dictionary<char, SortedSinglyLinkedList<char>> _verticesAndDirectNeighbours;
 
+        /// <summary>
+        /// Default constructor of the graph class.
+        /// </summary>
+        /// <param name="vertexTransitiveDependencies"></param>
         internal Graph(List<string> vertexTransitiveDependencies)
         {
             _verticesAndDirectNeighbours = GetVerticesAndDirectNeighboursFromStringList(vertexTransitiveDependencies);
         }
 
+        /// <summary>
+        /// Flattens graph representation into a chain of dependencies.
+        /// </summary>
         internal void FlattenGraphDependencies()
         {
             var dependencyStack = new Stack<SinglyLinkedListNode<char>>();
@@ -72,6 +82,10 @@ namespace Kata.Graphs
             }
         }
 
+        /// <summary>
+        /// Gets a string list representation of the graph.
+        /// </summary>
+        /// <returns></returns>
         internal List<string> GetDependencyListOfAllVertexDependencies()
         {
             List<string> vertexDependencies = new List<string>();

@@ -1,19 +1,38 @@
 ﻿namespace Kata.Graphs
 {
+    /// <summary>
+    /// A linked list that it in some sorted order in which it's values define a sorted set.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     internal class SortedSinglyLinkedList<T> where T : IEquatable<T>, IComparable<T>
     {
+        /// <summary>
+        /// The first node in the sorted linked list node.
+        /// </summary>
         internal SinglyLinkedListNode<T>? Head { get; set; }
 
+        /// <summary>
+        /// The default constructor
+        /// </summary>
         internal SortedSinglyLinkedList()
         {
             
         }
 
+        /// <summary>
+        /// Constuctor that takes the head of a chain of linked list nodes in a sorted order.
+        /// </summary>
+        /// <param name="headOfSortedLinkedList"></param>
         internal SortedSinglyLinkedList(SinglyLinkedListNode<T> headOfSortedLinkedList)
         {
             Head = headOfSortedLinkedList;
         }
 
+        /// <summary>
+        /// Performs inline merging of an outer linked list into this linked list.
+        /// </summary>
+        /// <param name="outerLinkedList"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         internal void MergeSortedLinkedList(SortedSinglyLinkedList<T> outerLinkedList)
         {
             if (outerLinkedList is null) throw new ArgumentNullException(nameof(outerLinkedList));
