@@ -114,7 +114,7 @@
     "TestExpectedOutput": [
       "A B C E F G H",
       "C E F G H",
-      "C G H"
+      "E G H"
     ]
   },
   {
@@ -155,7 +155,7 @@
     ],
     "TestExpectedOutput": [
       "A B C",
-      "D A",
+      "D A B C",
       "E F G"
     ]
   },
@@ -184,7 +184,7 @@
     "TestExpectedOutput": [
       "A A B C D E F",
       "B A B C D E F",
-      "C A B C D E F"
+      "D A B C D E F"
     ]
   },
   {
