@@ -2,16 +2,16 @@
 
 namespace Kata.Graphs
 {
-    public class Graph
+    internal class Graph
     {
         private Dictionary<char, SortedSinglyLinkedList<char>> _verticesAndDirectNeighbours;
 
-        public Graph(List<string> vertexTransitiveDependencies)
+        internal Graph(List<string> vertexTransitiveDependencies)
         {
             _verticesAndDirectNeighbours = GetVerticesAndDirectNeighboursFromStringList(vertexTransitiveDependencies);
         }
 
-        public void FlattenGraphDependencies()
+        internal void FlattenGraphDependencies()
         {
             var dependencyStack = new Stack<SinglyLinkedListNode<char>>();
             var visited = new HashSet<char>();
@@ -72,7 +72,7 @@ namespace Kata.Graphs
             }
         }
 
-        public List<string> GetDependencyListOfAllVertexDependencies()
+        internal List<string> GetDependencyListOfAllVertexDependencies()
         {
             List<string> vertexDependencies = new List<string>();
             StringBuilder stringBuilder = new StringBuilder(); 
