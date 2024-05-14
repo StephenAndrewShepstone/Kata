@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Channels;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace Kata.Graphs
 {
@@ -14,7 +8,6 @@ namespace Kata.Graphs
 
         public Graph(List<string> vertexTransitiveDependencies)
         {
-            //Validate();
             _verticesAndDirectNeighbours = GetVerticesAndDirectNeighboursFromStringList(vertexTransitiveDependencies);
         }
 
@@ -31,11 +24,6 @@ namespace Kata.Graphs
                 }
                 var currentNode = keyValuePair.Value.Head;
                 
-                //if (currentNode is not null)
-                //{
-                //    //dependencyStack.Push(currentNode);
-                //    visited.Add(currentNode.Value);
-                //}
                 while (dependencyStack.Count > 0 || currentNode is not null)
                 {
                     if (currentNode is null)
@@ -47,10 +35,6 @@ namespace Kata.Graphs
                     {
                         if (visited.Contains(currentNode.Value))
                         {
-                            //var currentNode = dependencyStack.Peek();
-                            //Todo: for better performance add another hashset to ensure unneccessary 
-                            //merges aren't taking place if a node has been merged at a deeper level.
-                            //SortedSinglyLinkedList<char> innerList = _verticesAndDirectNeighbours[currentNode.Value];
                             SortedSinglyLinkedList<char> outerList;
                             if (_verticesAndDirectNeighbours.TryGetValue(currentNode.Value, out SortedSinglyLinkedList<char> dependencies))
                             {
@@ -68,8 +52,6 @@ namespace Kata.Graphs
                         else
                         {
                             visited.Add(currentNode.Value);
-                            //currentNode = _verticesAndDirectNeighbours[currentNode.Value].Head;
-                            //Problem is potentially here. On cyclic dependency of A
                             if (!flattened.Contains(currentNode.Value))
                             {
                                 dependencyStack.Push(currentNode);
@@ -109,11 +91,6 @@ namespace Kata.Graphs
             }
             return vertexDependencies;
         }
-
-        //private void PerformDepthFirstSearchWithFlatten()
-        //{
-
-        //}
 
         private Dictionary<char, SortedSinglyLinkedList<char>> GetVerticesAndDirectNeighboursFromStringList(List<string> vertexTransitiveDependencies)
         {

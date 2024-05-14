@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace Kata.Graphs
+﻿namespace Kata.Graphs
 {
     internal class SortedSinglyLinkedList<T> where T : IEquatable<T>, IComparable<T>
     {
@@ -22,7 +14,6 @@ namespace Kata.Graphs
             Head = headOfSortedLinkedList;
         }
 
-        //internal void MergeSortedLinkedList(SortedSinglyLinkedList<T> outerLinkedList, HashSet<char> visited)
         internal void MergeSortedLinkedList(SortedSinglyLinkedList<T> outerLinkedList)
         {
             if (outerLinkedList is null) throw new ArgumentNullException(nameof(outerLinkedList));
@@ -61,27 +52,6 @@ namespace Kata.Graphs
             SinglyLinkedListNode<T> swapNode;
             while (innerNode.Next is not null && outerNode is not null)
             {
-                //if (innerNode.Next.Value.CompareTo(outerNode.Value) == 1)
-                //{
-                //    swapNode = innerNode.Next;
-                //    innerNode.Next = outerNode;
-                //    outerNode = outerNode.Next;
-                //    innerNode = innerNode.Next;
-                //    innerNode.Next = swapNode;
-                //}
-                //else if (innerNode.Next.Value.CompareTo(outerNode.Value) == 0)
-                //{
-                //    swapNode = outerNode.Next;
-                //    innerNode.Next = outerNode;
-                //    outerNode.Next = innerNode.Next.Next;
-                //    innerNode = innerNode.Next;
-                //    outerNode = swapNode;
-                //}
-                //else
-                //{
-                //    innerNode = innerNode.Next;
-                //}
-
                 if (innerNode.Next.Value.CompareTo(outerNode.Value) > 0)
                 {
                     swapNode = innerNode.Next;

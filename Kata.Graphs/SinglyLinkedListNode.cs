@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Kata.Graphs
+﻿namespace Kata.Graphs
 {
     internal class SinglyLinkedListNode<T> where T : IEquatable<T>, IComparable<T>
     {
