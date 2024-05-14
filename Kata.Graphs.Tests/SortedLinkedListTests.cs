@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Kata.Graphs.Tests
 {
     [TestClass]
-    public class LinkedListExtensionsTests
+    public class SortedLinkedListTests
     {
         private List<int>[] _arrayOfTestLists = new List<int>[]
         {
