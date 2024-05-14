@@ -236,6 +236,20 @@
       "E F H",
       "F H"
     ]
+  },
+  {
+    "TestId": 18,
+    "TestName": "Kata test case 2",
+    "TestInput": [
+      "A B",
+      "B C",
+      "C A"
+    ],
+    "TestExpectedOutput": [
+      "A A B C",
+      "B A B C",
+      "C A B C"
+    ]
   }
 ]
      

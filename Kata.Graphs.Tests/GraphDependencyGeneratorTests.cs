@@ -46,6 +46,7 @@ namespace Kata.Graphs.Tests
         [DataRow(15, DisplayName = "Three-way cyclic dependency (3 vertex complete graph)")]
         [DataRow(16, DisplayName = "Three-way cyclic dependency with single edge source")]
         [DataRow(17, DisplayName = "Kata test case")]
+        [DataRow(18, DisplayName = "Kata test case 2")]
         public void GetAllVertexDependenciesTests(int testNumber)
         {
             GetAllVertexDependenciesTest testConfig = _tests[testNumber];
